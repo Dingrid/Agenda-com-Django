@@ -7,7 +7,7 @@ from core.models import Evento
 
 class EventoAdmin(admin.ModelAdmin):
     #apresenta no bd o titulo e as datas do evento na listagem
-    list_display = ('titulo', 'data_evento', 'data_criacao')
+    list_display = ('id','titulo', 'data_evento', 'data_criacao')
     #Cria um filtro para filtrar por nome de usuario, titulo e data de evento
     list_filter = ('usuario', 'titulo', 'data_evento',)
 
