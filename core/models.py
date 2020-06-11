@@ -15,3 +15,6 @@ class Evento(models.Model):
 
     def __str__(self): #apresenta no bd o titulo do evento na listagem
         return self.titulo
+
+    def get_data_evento(self):
+        return self.data_evento.strftime(' %d/%m/%Y %H:%M')
