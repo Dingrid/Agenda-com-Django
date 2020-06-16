@@ -1,0 +1,26 @@
+.topo
+{  
+    width: 100%;
+    height: 50%;
+    background-color: #056A9C;
+    margin: 0;
+    padding: 0;
+}
+
+#login
+{
+    align-items: center;
+    vertical-align: middle;
+    margin-top:50px;
+}
+
+.alinhar
+{
+    margin-left: 450px;
+}
+
+strong
+{
+    color:red;
+    margin-left: 550px;
+}

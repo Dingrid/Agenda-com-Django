@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4i$kn!htkh2b=3)n^6n*ijyt8e#zpbui4h)2=&j!ol(cz@m#ub'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True #deixa false quando for ir pra loja
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] #deixa vazio em debug true
 
 
 # Application definition

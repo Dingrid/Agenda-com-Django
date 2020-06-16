@@ -3,7 +3,7 @@ from core.models import Evento
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from django.http.response import Http404, JsonResponse
 from django.contrib.auth.models import User
 # Create your views here.
@@ -34,6 +34,8 @@ def submit_login(request):
 def lista_eventos(request):
     usuario = request.user
     data_atual = datetime.now() - timedelta(hours=1)
+
+    #Filtra os eventos irão acontecer
     evento = Evento.objects.filter(usuario=usuario,
                                     data_evento__gt= data_atual) #O __gt é o >= o __lt é o <=
     dados = {'eventos': evento}
@@ -89,6 +91,15 @@ def json_lista_evento(request, id_usuario):
     usuario = User.objects.get(id= id_usuario)
     evento = Evento.objects.filter(usuario=usuario).values('id','titulo')
     return JsonResponse(list(evento), safe=False)
+
+
+
+def historico(request):
+    usuario = request.user
+    evento = Evento.objects.filter(usuario=usuario)
+    dados = {'eventos': evento}
+    return render(request, 'historico.html', dados)
+
     
     
        

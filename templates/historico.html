@@ -1,0 +1,22 @@
+{% extends "model-page.html"%}
+
+{% block content%}
+       <h2>Histórico</h2>
+    <ul>
+       {% for evento in eventos %}
+       <li>
+            <div style= {% if evento.get_evento_atrasado %}
+                            "color: red"
+                        {% endif %}
+                        {% if evento.get_evento_do_dia %}
+                            "color:  #F3A406"
+                        {% endif %}
+            >
+               {{evento.titulo}} - {{ evento.get_data_evento}}
+               ( <a href="delete/{{evento.id}}/">Excluir</a> )
+              
+          </div>
+         </li>
+       {%endfor %}
+    </ul>
+{% endblock%}

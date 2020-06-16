@@ -2,17 +2,23 @@
 
 {% block content%}
        <h2>Agendamentos</h2>
-       <a href="evento/"><button type="button">Novo evento</button></a>
+       <a href="evento/"><button type="button"  class="btn btn-primary">Novo evento</button></a>
+       <a href="evento/historico/"><button type="button" class="btn btn-primary">Histórico</button></a>
     <ul>
+       
        {% for evento in eventos %}
        <li>
-          <div style= {% if evento.get_evento_atrasado %}
-                        "color: red"
-                     {% endif %}
-          >
-               {{evento.titulo}} - {{ evento.get_data_evento}}
+         <div style= {% if evento.get_evento_atrasado %}
+         "color: red"
+          {% endif %}
+          {% if evento.get_evento_do_dia %}
+             "color: #F3A406"
+          {% endif %}
+         >
+               {{evento.titulo}} - {{ evento.get_data_evento}} - {{evento.get_descricao_evento}}
                ( <a href="evento/?id={{evento.id}}">Editar</a> /
-               <a href="evento/delete/{{evento.id}}/">Excluir</a> )
+               <a href="evento/historico/delete/{{evento.id}}/">Excluir</a>  )
+              
           </div>
          </li>
        {%endfor %}
